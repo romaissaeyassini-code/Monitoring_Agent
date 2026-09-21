@@ -1,0 +1,26 @@
+2026-09-20 15:17:31,429 - WARNING - the disk is nearly full : 113.74 GB
+2026-09-20 15:19:05,166 - WARNING - the disk is nearly full : 113.74 GB
+2026-09-20 15:19:38,435 - WARNING - the cpu percent is high : 9.8  %
+2026-09-20 15:30:23,955 - WARNING - ram usage is high : 7.69 GB
+2026-09-20 17:27:21,993 - INFO - the is no such process : process PID not found (pid=9999999)
+2026-09-20 17:28:14,622 - INFO - the is no such process : process PID not found (pid=9999999)
+2026-09-20 18:07:31,612 - WARNING - the ping not oki :CompletedProcess(args=['ping', '-n', '1', 'C:\\Users\\hp\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe d:/tests/network.py'], returncode=1, stdout='Ping request could not find host C:\\Users\\hp\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe d:/tests/network.py. Please check the name and try again.\n', stderr='')
+2026-09-20 18:07:51,839 - WARNING - the ping not oki :CompletedProcess(args=['ping', '-n', '1', 'ho'], returncode=1, stdout='Ping request could not find host ho. Please check the name and try again.\n', stderr='')
+2026-09-20 18:09:21,117 - WARNING - Ping request could not find host ki. Please check the name and try again
+2026-09-20 18:09:36,174 - INFO - ping okii : google.com
+2026-09-20 18:10:20,053 - INFO - CompletedProcess(args=['ping', '-n', '1', 'google.com'], returncode=0, stdout='\nPinging google.com [172.217.171.46] with 32 bytes of data:\nReply from 172.217.171.46: bytes=32 time=42ms TTL=118\n\nPing statistics for 172.217.171.46:\n    Packets: Sent = 1, Received = 1, Lost = 0 (0% loss),\nApproximate round trip times in milli-seconds:\n    Minimum = 42ms, Maximum = 42ms, Average = 42ms\n', stderr='')
+2026-09-20 18:14:23,784 - INFO - Ping request could not find host gigii. Please check the name and try again
+2026-09-20 18:15:32,862 - INFO - Ping request could not find host  j . Please check the name and try again
+2026-09-20 18:53:24,232 - WARNING - port time out 
+2026-09-20 18:58:34,743 - WARNING - port time out 
+2026-09-20 19:04:54,083 - INFO - port is conected : {host}:{port}
+2026-09-20 19:05:38,060 - INFO - port is conected : google.com:443
+2026-09-20 19:06:14,765 - WARNING - port time out : google.com:83
+2026-09-20 19:07:40,915 - INFO - port is conected : google.com:443
+2026-09-20 19:12:49,013 - WARNING - TCP connection failed : google.com:4430 
+2026-09-20 19:14:52,896 - INFO - port is conected : google.com:443
+2026-09-20 19:19:56,939 - INFO - Ping request could not find host  google.comii . Please check the name and try again
+2026-09-20 19:23:54,369 - INFO - port is conected : google.com:443
+2026-09-20 19:26:39,507 - WARNING - TCP connection failed : google.comknl:443 
+2026-09-20 19:39:26,910 - WARNING - the disk is nearly full : 113.74 GB
+2026-09-20 19:40:53,544 - INFO - port is connected : google.com:443
