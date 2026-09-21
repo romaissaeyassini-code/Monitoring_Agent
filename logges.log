@@ -24,3 +24,27 @@
 2026-09-20 19:26:39,507 - WARNING - TCP connection failed : google.comknl:443 
 2026-09-20 19:39:26,910 - WARNING - the disk is nearly full : 113.74 GB
 2026-09-20 19:40:53,544 - INFO - port is connected : google.com:443
+2026-09-21 20:05:13,517 - WARNING - the disk is nearly full : 113.74 GB
+2026-09-21 20:10:31,465 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/main.py . Please check the name and try again
+2026-09-21 20:12:32,349 - WARNING - the disk is nearly full : 113.74 GB
+2026-09-21 20:14:26,854 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/main.py . Please check the name and try again
+2026-09-21 20:15:58,152 - WARNING - the disk is nearly full : 113.74 GB
+2026-09-21 20:20:36,310 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/main.py . Please check the name and try again
+2026-09-21 20:20:41,656 - WARNING - the disk is nearly full : 113.74 GB
+2026-09-21 20:22:05,120 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/main.py . Please check the name and try again
+2026-09-21 21:18:28,022 - WARNING - the disk is nearly full : 113.74 GB
+2026-09-21 21:19:19,234 - WARNING - the disk is nearly full : 113.74 GB
+2026-09-21 21:19:35,529 - WARNING - the disk is nearly full : 113.74 GB
+2026-09-21 21:20:43,596 - WARNING - the disk is nearly full : 113.74 GB
+2026-09-21 21:23:07,412 - WARNING - the disk is nearly full : 113.74 GB
+2026-09-21 21:48:35,559 - INFO - Error: the port must be a number : <class 'ValueError'>
+2026-09-21 21:48:35,560 - WARNING - TCP connection failed : google.com:google.com 
+2026-09-21 21:51:12,076 - INFO - Error: the port must be a number : <class 'ValueError'>
+2026-09-21 21:51:12,077 - WARNING - TCP connection failed : google.com:google.com 
+2026-09-21 21:51:24,832 - INFO - Ping request could not find host  4 . Please check the name and try again
+2026-09-21 21:52:00,742 - INFO - Error: the port must be a number : <class 'ValueError'>
+2026-09-21 21:52:00,743 - WARNING - TCP connection failed : google.com:67 
+2026-09-21 21:52:15,724 - INFO - Ping request could not find host  67 . Please check the name and try again
+2026-09-21 21:52:34,559 - INFO - Error: the port must be a number : <class 'ValueError'>
+2026-09-21 21:52:34,560 - WARNING - TCP connection failed : 67:443 
+2026-09-21 21:53:18,182 - INFO - port is connected : google.com:443

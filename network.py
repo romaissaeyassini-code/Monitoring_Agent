@@ -3,7 +3,6 @@ import socket
 from config_logges import logg
 
 
-print('-' * 100)
 #ping sur host 
 
 def ping():
@@ -25,20 +24,17 @@ def ping():
     else :
         logg.info(f"Ping request could not find host  {host} . Please check the name and try again")         
 
-print('-' * 100)
-ping()
-print('-' * 100)
-
 
 
 #tcp ping 
 
-print ("test la connetiveite sur tcp ")
 
 def tcp_ping():
+    print ("test la connetiveite sur tcp ")
 
     host = input("Enter host: ")
-    port=int(input("entre le port : "))
+    port=(input("entre le port : "))
+
 
     try:
             #Connect to address and return the socket. Connect to address (host, port)
@@ -48,12 +44,17 @@ def tcp_ping():
             logg.info (f"port is connected : {host}:{port}")
             return True
                   
-    except (socket.timeout,OSError):
-            
+    except (socket.timeout,OSError,ValueError):
+            logg.info(f"Error: the port must be a number : {ValueError}") 
             logg.warning( f"TCP connection failed : {host}:{port} ")
             return False
 
 
-print('-' * 100)
-tcp_ping()
-print('-' * 100)
+def call_all():
+    print('-' * 75) 
+    ping()
+    print('-' * 75)       
+    tcp_ping()
+    print('-' * 75)
+
+
