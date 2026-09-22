@@ -1,38 +1,39 @@
+from fastapi import FastAPI
+
 import psutil
 from config_logges import logg
-import cpu
-import ram
-import disk
-import network
-import processes
+from cpu import call_all
 
 
-def main():
-        print("SERVER MONITORING SYSTEM  : \n"
-            "1. CPU Monitoring \n"
-            "2. RAM Monitoring\n"
-            "3. Disk Monitoring \n"
-            "4. Network Monitoring\n" 
-            "5. Processes Monitoring \n"
-        )
 
-        meniu=int(input("chose un nomber :\n"))
 
-        if meniu == 1:
-            cpu.call_all() 
+app=FastAPI()
 
-        if meniu == 2:
-            ram.call_all()
+@app.get("/cpu")
+def call_all():
+    cpu_percent = psutil.cpu_percent()
+    physical = psutil.cpu_count(logical=False)
+    logical = psutil.cpu_count(logical=True)
 
-        if meniu == 3:
-            disk.call_all()
+    return {
+        "cpu_percent": cpu_percent,
+        "physical_cores": physical,
+        "logical_cores": logical
+    }
 
-        if meniu == 4:
-             network.call_all()
 
-        if meniu == 5:
-             processes.call_all()
+
+
+
+
+
+    """ return ram.call_all()
+
+    return disk.call_all()
+
+    return network.call_all()
+
+    return processes.call_all() """
              
-             
 
-main()
+
