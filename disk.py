@@ -9,7 +9,8 @@ def get_disk_total ():
     disk =psutil.disk_usage('/')
 
     disk_total= disk.total / 1024 ** 3
-    print (f"the disk total is : {disk_total:.2f} GB ")
+    return (f"the disk total is : {disk_total:.2f} GB ")
+    return get_disk_total
 
 
 
@@ -23,11 +24,12 @@ def get_disk_usage():
     disk_total= disk.total / 1024 ** 3
 
     if disk_usage <= disk_total * 0.7 :
-         print(f"the disk is : {disk_usage:.2f} GB")
+         return(f"the disk is : {disk_usage:.2f} GB")
        
     else:
         logg.warning(f"the disk is nearly full : {disk_usage:.2f} GB")
-        
+        return f"the disk is nearly full : {disk_usage:.2f} GB"
+    return get_disk_usage 
         
 
 
@@ -37,15 +39,15 @@ def get_disk_free():
     disk =psutil.disk_usage('/')
     
     disk_free= disk.free / 1024 **3
-    print (f"the free space is : {disk_free:.2f} GB ")
+    return (f"the free space is : {disk_free:.2f} GB ")
+    return get_disk_free
 
 
 #def call all
 
 def call_all():
-    print ('-' *70)
+    
     get_disk_total()
-    print ('-' *70)
     get_disk_usage()
     print ('-' *70)
     get_disk_free()

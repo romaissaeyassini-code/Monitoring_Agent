@@ -8,7 +8,9 @@ from config_logges import logg
 def get_ram_total() :
     ram=psutil.virtual_memory()
     ram_total= ram.total / 1024 ** 3
-    print (f"the ram total is : {ram_total:.2f} GB")
+    return (f"the ram total is : {ram_total:.2f} GB")
+    return get_ram_total
+
 
 
 
@@ -22,16 +24,17 @@ def get_ram_used():
     ram_used= ram.used / 1024 ** 3
 
     if ram_used <= ram_total *0.7 :
-        print (f"the ram in uese is : {ram_used:.2f} GB")
+        return (f"the ram in uese is : {ram_used:.2f} GB")
        
     else:
        logg.warning(f"ram usage is high : {ram_used:.2f} GB")        
-         
+
+    return get_ram_used 
 
 def call_all():
     print ('-' * 75) 
     get_ram_total()
     print ('-' * 75)
     get_ram_used()
-
+    
 

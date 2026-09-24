@@ -5,7 +5,8 @@ from config_logges import logg
 
 #ping sur host 
 
-def ping():
+def ping(host:str):
+    
     host = input("Enter host: ")
     
     #exiqute les command windows = ipconfig /linux '-c'/'-n'win /
@@ -19,19 +20,23 @@ def ping():
         )
                     #stdout=le resulta de ping selment
     if result.returncode == 0:
-        print(f"{result.stdout}")
+        return(f"{result.stdout}")
 
     else :
-        logg.info(f"Ping request could not find host  {host} . Please check the name and try again")         
+        logg.info(f"Ping request could not find host  {host} . Please check the name and try again")
+        return f"Ping request could not find host  {host} . Please check the name and try again"
+    return ping 
+    return('-' * 75)      
+
 
 
 
 #tcp ping 
 
 
-def tcp_ping():
-    print ("test la connetiveite sur tcp ")
-
+def tcp_ping(host:str , port:int):
+    
+    return ("test la connetiveite sur tcp ")
     host = input("Enter host: ")
     port=(input("entre le port : "))
 
@@ -42,19 +47,19 @@ def tcp_ping():
             socket.create_connection((host , port) , timeout=3)
 
             logg.info (f"port is connected : {host}:{port}")
+            return f"port is connected : {host}:{port}"
             return True
                   
     except (socket.timeout,OSError,ValueError):
             logg.info(f"Error: the port must be a number : {ValueError}") 
+            return f"Error: the port must be a number : {ValueError}"
             logg.warning( f"TCP connection failed : {host}:{port} ")
+            return "TCP connection failed : {host}:{port} "
             return False
+    return tcp
+    return('-' * 75)
 
 
-def call_all():
-    print('-' * 75) 
-    ping()
-    print('-' * 75)       
-    tcp_ping()
-    print('-' * 75)
+
 
 
