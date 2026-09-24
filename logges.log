@@ -48,3 +48,13 @@
 2026-09-21 21:52:34,559 - INFO - Error: the port must be a number : <class 'ValueError'>
 2026-09-21 21:52:34,560 - WARNING - TCP connection failed : 67:443 
 2026-09-21 21:53:18,182 - INFO - port is connected : google.com:443
+2026-09-23 19:56:36,917 - WARNING - the disk is nearly full : 114.69 GB
+2026-09-23 19:58:04,495 - WARNING - the disk is nearly full : 114.69 GB
+2026-09-23 19:59:34,026 - WARNING - the disk is nearly full : 114.69 GB
+2026-09-23 20:00:16,078 - WARNING - the disk is nearly full : 114.69 GB
+2026-09-23 20:00:26,603 - WARNING - the disk is nearly full : 114.69 GB
+2026-09-23 21:08:13,092 - INFO - Error: the port must be a number : <class 'ValueError'>
+2026-09-23 21:08:13,093 - WARNING - TCP connection failed : : 
+2026-09-23 21:09:53,087 - WARNING - the disk is nearly full : 122.70 GB
+2026-09-23 21:13:24,703 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/network.py . Please check the name and try again
+2026-09-23 21:14:45,384 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/network.py . Please check the name and try again
