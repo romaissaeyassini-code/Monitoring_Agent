@@ -3,7 +3,7 @@ from ram import get_ram_total , get_ram_used
 from cpu import get_cpu_percent , get_cpu_count
 from disk import get_disk_total , get_disk_usage , get_disk_free
 from network import ping , tcp_ping
-from processes import get_process 
+from processes import  head , get_process 
 
 
 app = FastAPI()
@@ -36,7 +36,7 @@ def network ():
 
 @app.get('/process')
 def process():
-    return {"processes":get_process()}
+    return ( head (),get_process())
     
 
 
