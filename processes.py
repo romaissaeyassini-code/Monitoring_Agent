@@ -6,12 +6,12 @@ from config_logges import logg
 
     #the head of the table 
 
-processes=[]
 
 def get_process():
     print(f"{'PID':<8} {'NAME':<25} {'CPU%':<8} {'RAM%':<8} {'STATUS':<12}")
     print("-" * 65)
 
+    process=[]
     for process in psutil.process_iter(
         ['pid', 'name', 'cpu_percent', 'memory_percent', 'status']
     ):
@@ -33,6 +33,10 @@ def get_process():
 
         except psutil.AccessDenied as error2:
             logg.info(f"ther access is denied : {error2}")
+
+    return get_process
+
+print (get_process())
 
 
 def call_all():
