@@ -5,59 +5,53 @@ from config_logges import logg
 
 #ping sur host 
 
-def ping(host:str):
-    
-    host = input("Enter host: ")
-    
-    #exiqute les command windows = ipconfig /linux '-c'/'-n'win /
 
-    result=subprocess.run(
+def ping(host: str):
+    result = subprocess.run(
         ["ping", "-n", "1", host],
-
-        capture_output= True,
+        capture_output=True,
         text=True
+    )
 
-        )
-                    #stdout=le resulta de ping selment
     if result.returncode == 0:
-        return(f"{result.stdout}")
+        return {
+            "host": host,
+            "success": True,
+            "result": result.stdout
+        }
 
-    else :
-        logg.info(f"Ping request could not find host  {host} . Please check the name and try again")
-        return f"Ping request could not find host  {host} . Please check the name and try again"
-    return ping 
-    return('-' * 75)      
+    else:
+        message = f"Ping request could not find host {host}. Please check the name and try again"
 
+        logg.info(message)
 
+        return {
+            "host": host,
+            "success": False,
+            "result": message
+        }
 
 
 #tcp ping 
 
 
 def tcp_ping(host:str , port:int):
-    
-    return ("test la connetiveite sur tcp ")
-    host = input("Enter host: ")
-    port=(input("entre le port : "))
 
 
     try:
             #Connect to address and return the socket. Connect to address (host, port)
 
-            socket.create_connection((host , port) , timeout=3)
-
-            logg.info (f"port is connected : {host}:{port}")
-            return f"port is connected : {host}:{port}"
-            return True
+        socket.create_connection((host , port) , timeout=3)
+        message= f"port is connected : {host}:{port}"
+        logg.info (message)
+        return message 
                   
-    except (socket.timeout,OSError,ValueError):
-            logg.info(f"Error: the port must be a number : {ValueError}") 
-            return f"Error: the port must be a number : {ValueError}"
-            logg.warning( f"TCP connection failed : {host}:{port} ")
-            return "TCP connection failed : {host}:{port} "
-            return False
-    return tcp
-    return('-' * 75)
+    except (socket.timeout,OSError):
+            
+            message1=  f"TCP connection failed : {host}:{port}","tcheck the host name or the port "
+            logg.warning(message1)
+            return message1 
+    
 
 
 

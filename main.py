@@ -29,9 +29,14 @@ def disk():
     return {get_disk_total() , get_disk_usage (), get_disk_free ()
     }
 
-@app.get('/network')
-def network ():
-    return { ping() , tcp_ping ()}
+@app.get("/PING/{host}")
+def PING(host: str):
+    return ping(host)
+
+@app.get("/TCP_PING/{host}/{port}")
+def TCP_PING(host:str , port:int):
+    return f"the host: {host}" , f"the port : {port}" , tcp_ping(host,port)
+
 
 
 @app.get('/process')
