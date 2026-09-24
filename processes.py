@@ -9,8 +9,8 @@ from config_logges import logg
 
 def head():
     return(f"{'PID':<8} {'NAME':<25} {'CPU%':<8} {'RAM%':<8} {'STATUS':<12}")
-    print ("-" * 65)
-    return head
+    return ("-" * 65) , head
+    
 
 def get_process():
     processes = []
