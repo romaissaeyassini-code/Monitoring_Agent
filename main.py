@@ -4,10 +4,11 @@ import cpu
 import ram
 import disk
 import network
-import processes
+import processes 
 
 
 def main():
+        
         print("SERVER MONITORING SYSTEM  : \n"
             "1. CPU Monitoring \n"
             "2. RAM Monitoring\n"
@@ -16,7 +17,7 @@ def main():
             "5. Processes Monitoring \n"
         )
 
-        meniu=int(input("chose un nomber :\n"))
+        meniu=int(input("chose un nomber :"))
 
         if meniu == 1:
             cpu.call_all() 
@@ -32,7 +33,6 @@ def main():
 
         if meniu == 5:
              processes.call_all()
-             
-             
+
 
 main()

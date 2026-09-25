@@ -58,3 +58,38 @@
 2026-09-23 21:09:53,087 - WARNING - the disk is nearly full : 122.70 GB
 2026-09-23 21:13:24,703 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/network.py . Please check the name and try again
 2026-09-23 21:14:45,384 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/network.py . Please check the name and try again
+2026-09-24 21:43:37,475 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/processes.py . Please check the name and try again
+2026-09-24 21:48:50,507 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/main.py . Please check the name and try again
+2026-09-24 21:58:24,380 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/processes.py . Please check the name and try again
+2026-09-24 21:59:12,279 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/main.py . Please check the name and try again
+2026-09-24 22:00:08,270 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/main.py . Please check the name and try again
+2026-09-24 22:00:33,138 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/main.py . Please check the name and try again
+2026-09-24 22:09:09,797 - INFO - Ping request could not find host  C:\Users\hp\AppData\Local\Python\pythoncore-3.14-64\python.exe d:/tests/network.py . Please check the name and try again
+2026-09-24 22:26:15,580 - INFO - Ping request could not find host goom. Please check the name and try again
+2026-09-24 22:26:36,605 - INFO - Ping request could not find host gigi. Please check the name and try again
+2026-09-24 22:46:08,900 - INFO - port is connected : google.com:443
+2026-09-24 22:47:57,625 - INFO - port is connected : google.com:443
+2026-09-24 22:48:46,078 - INFO - port is connected : gole.com:443
+2026-09-24 22:49:09,941 - INFO - Error: the port must be a number : <class 'ValueError'>
+2026-09-24 22:49:09,941 - WARNING - TCP connection failed : google.com:4 
+2026-09-24 22:52:42,824 - INFO - port is connected : google.com:80
+2026-09-24 22:53:19,179 - INFO - Error: the port must be a number : <class 'ValueError'>
+2026-09-24 22:53:19,180 - WARNING - TCP connection failed : google.com:8 
+2026-09-24 22:55:13,565 - INFO - Error: not a valide port : 
+2026-09-24 22:55:13,566 - WARNING - TCP connection failed : google.com:8 
+2026-09-24 22:56:02,817 - INFO - port is connected : google.com:80
+2026-09-24 22:56:20,871 - INFO - Error: 80 not a valide port 
+2026-09-24 22:56:20,872 - WARNING - TCP connection failed : goom:80 
+2026-09-24 22:58:43,709 - WARNING - ('TCP connection failed : jj:443 n/ ', 'tcheck the host name or the port ')
+2026-09-24 22:59:33,130 - WARNING - ('TCP connection failed : jj:44 \n ', 'tcheck the host name or the port ')
+2026-09-24 23:01:52,357 - WARNING - the disk is nearly full : 122.72 GB
+2026-09-24 23:01:56,427 - WARNING - the disk is nearly full : 122.72 GB
+2026-09-25 19:51:31,656 - WARNING - the disk is nearly full : 123.41 GB
+2026-09-25 19:52:50,034 - WARNING - the disk is nearly full : 123.41 GB
+2026-09-25 19:55:13,739 - WARNING - the disk is nearly full : 123.41 GB
+2026-09-25 19:56:48,828 - INFO - Ping request could not find host hi. Please check the name and try again
+2026-09-25 19:57:28,889 - WARNING - ('TCP connection failed : gi:80', 'tcheck the host name or the port ')
+2026-09-25 20:16:22,785 - INFO - port is connected : massare.ma:443
+2026-09-25 20:49:18,207 - WARNING - the disk is nearly full : 123.42 GB
+2026-09-25 20:50:25,814 - INFO - Error: the port must be a number : <class 'ValueError'>
+2026-09-25 20:50:25,814 - WARNING - TCP connection failed : google.com:809 

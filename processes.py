@@ -34,13 +34,12 @@ def get_process():
         except psutil.AccessDenied as error2:
             logg.info(f"ther access is denied : {error2}")
 
-    return get_process
+   
 
-print (get_process())
+
 
 
 def call_all():
     print ('-' *75)
     get_process()
-
     print ('-' *75)
