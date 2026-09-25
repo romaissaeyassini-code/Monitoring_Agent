@@ -90,3 +90,6 @@
 2026-09-25 19:56:48,828 - INFO - Ping request could not find host hi. Please check the name and try again
 2026-09-25 19:57:28,889 - WARNING - ('TCP connection failed : gi:80', 'tcheck the host name or the port ')
 2026-09-25 20:16:22,785 - INFO - port is connected : massare.ma:443
+2026-09-25 20:49:18,207 - WARNING - the disk is nearly full : 123.42 GB
+2026-09-25 20:50:25,814 - INFO - Error: the port must be a number : <class 'ValueError'>
+2026-09-25 20:50:25,814 - WARNING - TCP connection failed : google.com:809 
