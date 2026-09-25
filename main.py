@@ -8,26 +8,24 @@ from processes import  head , get_process
 
 app = FastAPI()
 
-@app.get("/")
-def meniu():
-    return {"message": "Hello"}
+@app.get("/Home")
+def Welcom():
+    return {"Welcome to Process Monitor!Monitor your system processes in real time,"
+    "check CPU and RAM usage, and easily identify which processes are consuming the most resources."}
 
-@app.get("/test_ram")
+@app.get("/Ram_Monitoring")
 def ram():
-    return { get_ram_total() ,
-             get_ram_used() 
-            }
+    return get_ram_total() ,get_ram_used() 
+            
 
-@app.get("/cpu")
+@app.get("/Cpu_Monitoring")
 def cpu():
-    return {get_cpu_percent()  ,
-            get_cpu_count(logical=True) , get_cpu_count(logical=False)
-            }
+    return get_cpu_percent() ,get_cpu_count(logical=True) , get_cpu_count(logical=False) 
 
-@app.get('/disk')
+@app.get('/Disk_Monitoring')
 def disk():
-    return {get_disk_total() , get_disk_usage (), get_disk_free ()
-    }
+    return  get_disk_total() ,get_disk_usage (), get_disk_free ()  
+    
 
 @app.get("/PING/{host}")
 def PING(host: str):

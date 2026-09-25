@@ -82,3 +82,10 @@
 2026-09-24 22:56:20,872 - WARNING - TCP connection failed : goom:80 
 2026-09-24 22:58:43,709 - WARNING - ('TCP connection failed : jj:443 n/ ', 'tcheck the host name or the port ')
 2026-09-24 22:59:33,130 - WARNING - ('TCP connection failed : jj:44 \n ', 'tcheck the host name or the port ')
+2026-09-24 23:01:52,357 - WARNING - the disk is nearly full : 122.72 GB
+2026-09-24 23:01:56,427 - WARNING - the disk is nearly full : 122.72 GB
+2026-09-25 19:51:31,656 - WARNING - the disk is nearly full : 123.41 GB
+2026-09-25 19:52:50,034 - WARNING - the disk is nearly full : 123.41 GB
+2026-09-25 19:55:13,739 - WARNING - the disk is nearly full : 123.41 GB
+2026-09-25 19:56:48,828 - INFO - Ping request could not find host hi. Please check the name and try again
+2026-09-25 19:57:28,889 - WARNING - ('TCP connection failed : gi:80', 'tcheck the host name or the port ')

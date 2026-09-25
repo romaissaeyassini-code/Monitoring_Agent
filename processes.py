@@ -1,4 +1,3 @@
-
 import psutil
 from config_logges import logg
 
@@ -6,12 +5,9 @@ from config_logges import logg
 
     #the head of the table 
 
-
 def head():
-    return(f"{'PID':<8} {'NAME':<25} {'CPU%':<8} {'RAM%':<8} {'STATUS':<12}")
-    return ("-" * 65) , head
+    return  "-" * 65 ,f"{'PID':<8} {'NAME':<25} {'CPU%':<8} {'RAM%':<8} {'STATUS':<12}" , "-" * 65 , head
     
-
 def get_process():
     processes = []
     
@@ -29,6 +25,7 @@ def get_process():
                         f"{info['status']:<12}"
                         )
 
+
         except psutil.NoSuchProcess as error1:
             logg.info(f"There is no such process: {error1}")
             return f"There is no such process: {error1}"
@@ -36,8 +33,9 @@ def get_process():
         except psutil.AccessDenied as error2:
             logg.info(f"Access denied: {error2}")
             return f"Access denied: {error2}"
+    
 
-    return processes
+    return processes ,  "-" * 65 
 
 
         
