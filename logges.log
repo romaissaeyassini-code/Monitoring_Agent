@@ -93,3 +93,5 @@
 2026-09-25 20:49:18,207 - WARNING - the disk is nearly full : 123.42 GB
 2026-09-25 20:50:25,814 - INFO - Error: the port must be a number : <class 'ValueError'>
 2026-09-25 20:50:25,814 - WARNING - TCP connection failed : google.com:809 
+2026-09-25 21:14:11,780 - INFO - port is connected : google.com:443
+2026-09-25 21:20:13,740 - INFO - port is connected : google.com:443
