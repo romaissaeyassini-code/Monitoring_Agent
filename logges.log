@@ -95,3 +95,5 @@
 2026-09-25 20:50:25,814 - WARNING - TCP connection failed : google.com:809 
 2026-09-25 21:14:11,780 - INFO - port is connected : google.com:443
 2026-09-25 21:20:13,740 - INFO - port is connected : google.com:443
+2026-09-26 17:05:27,221 - INFO - Ping request could not find host hi. Please check the name and try again
+2026-09-26 17:06:18,448 - INFO - port is connected : masar.ma:80
