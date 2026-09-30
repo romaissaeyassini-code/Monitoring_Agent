@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+import psutil
 from ram import get_ram_total , get_ram_used
 from cpu import get_cpu_percent , get_cpu_count
 from disk import get_disk_total , get_disk_usage , get_disk_free
@@ -131,7 +132,34 @@ def disk():
 
 @app.get("/PING/{host}")
 def PING(host: str):
-    return ping(host)
+    session=db.sessionlocal()
+
+    try:
+        session= db.sessionlocal()
+        result = ping(host)
+
+        data=models.network(
+            host=result
+        )
+
+        session.add(data)
+        session.commit()
+            
+
+        return {
+            "id": data.id,
+            "host": data.Host,
+            "success": result == host,
+            "date": data.date
+        }
+
+    except Exception:
+            session.rollback()
+            raise
+    finally:
+            session.close()
+    
+
 
 @app.get("/TCP_PING/{host}/{port}")
 def TCP_PING(host:str , port:int):
@@ -139,12 +167,68 @@ def TCP_PING(host:str , port:int):
 
 
 
-@app.get('/process')
+@app.get("/process")
 def process():
-    return ( head (),get_process())
-    
 
+    session = db.sessionlocal()
 
+    try:
+        processes = []
+
+        # get all the processes
+        for process in psutil.process_iter(
+            ["pid", "name", "cpu_percent", "memory_percent", "status"]
+        ):
+            try:
+                info = process.info
+
+                processes.append({
+                    "pid": info["pid"],
+                    "name": info["name"],
+                    "cpu_percent": info["cpu_percent"] or 0.0,
+                    "ram_percent": info["memory_percent"] or 0.0,
+                    "status": info["status"]
+                })
+
+            except (psutil.NoSuchProcess, psutil.AccessDenied):
+                continue
+
+        # Sort by CPU + RAM consumption
+        processes.sort(
+            key=lambda p: p["cpu_percent"] + p["ram_percent"],
+            reverse=True
+        )
+
+        # keep only the top 100
+        processes = processes[:100]
+
+        # dlete the priveios 100 row caus it alot of rows
+        session.query(models.Processes).delete() 
+
+        # Insert the new 100
+        for p in processes:
+
+            data = models.Processes(
+                pid=p["pid"],
+                name=p["name"],
+                cpu_percent=p["cpu_percent"],
+                ram_percent=p["ram_percent"],
+                status=p["status"]
+            )
+
+            session.add(data)
+
+        session.commit()
+
+        return processes
+        
+
+    except Exception:
+        session.rollback()
+        raise
+
+    finally:
+        session.close()
 
 
 

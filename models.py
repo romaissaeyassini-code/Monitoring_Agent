@@ -38,5 +38,21 @@ class CPU(base):
          )
 
 
+class Processes(base):
+     __tablename__= "processes"
+     id= sql.Column(sql.Integer,primary_key=True,index=True)
+     pid= sql.Column(sql.Integer,index=True)
+     name= sql.Column(sql.String ,index=True)
+     cpu_percent= sql.Column(sql.Float ,index=True)
+     ram_percent= sql.Column(sql.Float ,index=True)
+     status= sql.Column(sql.String ,index=True)
+     date = sql.Column(
+                  sql.DateTime(timezone=True),
+                  default=lambda: datetime.now(timezone.utc)
+              )
+     
+
+
+
 
      

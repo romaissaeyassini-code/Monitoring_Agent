@@ -28,14 +28,14 @@ def get_process():
 
         except psutil.NoSuchProcess as error1:
             logg.info(f"There is no such process: {error1}")
-            return f"There is no such process: {error1}"
+            return processes , error1
 
         except psutil.AccessDenied as error2:
             logg.info(f"Access denied: {error2}")
-            return f"Access denied: {error2}"
+            return processes ,error2
     
 
-    return processes ,  "-" * 65 
+       
 
 
         
