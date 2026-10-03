@@ -8,6 +8,9 @@ from processes import  head , get_process
 import database as db
 import models 
 from service import create_tables
+import socket
+from config_logges import logg 
+from config import AGENT_ID
 
 
 # Crée les tables PostgreSQL
@@ -18,7 +21,7 @@ app = FastAPI()
 
 @app.get("/Home")
 def Welcom():
-    return {"Welcome : Welcometo Process Monitor! "
+    return {"Welcome to Process Monitor! "
             "Monitor your system processes in real time, check CPU and RAM usage, and easily identify which processes are consuming the most resources."}
 
 @app.get("/Ram_Monitoring")
@@ -26,10 +29,12 @@ def ram():
     session = db.sessionlocal()
 
     try:#database= postgres
+        agent_id= AGENT_ID
         used = get_ram_used()
         total = get_ram_total()
 
         data = models.RAM(
+            agent_id=agent_id,
             ram_used=used,
             ram_total=total
         )
@@ -41,6 +46,7 @@ def ram():
         #aficher sur fatapi ui
         return {
             "The ID": data.id ,
+            "The Agent ID":data.agent_id,
             "The Ram in Used": f" {data.ram_used} GB",
             "The Ram Total": f"{data.ram_total} GB"
         } 
@@ -60,13 +66,15 @@ def cpu():
 
     session= db.sessionlocal()
 
-    try:
-        #pour postgres table
+    try: #pour postgres table
+        agent_id=AGENT_ID
         percent= get_cpu_percent() 
         count_logical= get_cpu_count(logical=True) 
         count_pysical= get_cpu_count(logical=False) 
+        
 
         data=models.CPU(
+            agent_id=AGENT_ID,
             percent= percent ,
             coures_logical= count_logical ,
             coures_pysical= count_pysical
@@ -80,6 +88,7 @@ def cpu():
 
         return {
             "The ID" :data.id ,
+            "The Agent ID": data.agent_id,
             "The CPU Persent ":f"{data.percent} %" , 
             "The coures Logical ":f"{data.coures_logical} coures" ,
             "The Course Pysical ":f"{data.coures_pysical} coures"
@@ -101,11 +110,13 @@ def disk():
 
         #postgre table 
     try:
+        agent_id=AGENT_ID
         total=get_disk_total()
         used=get_disk_usage()
         free=get_disk_free()
 
         data=models.Disk(
+            agent_id=AGENT_ID,
             disk_total=total,
             disk_used=used,
             disk_free=free )   
@@ -117,6 +128,7 @@ def disk():
             #fastapi
         return { 
         "The ID " :data.id ,
+        "The Agent ID": data.agent_id,
         "The Disk Total ": f"{data.disk_total} GB" ,
         "The Disk Used " : f"{data.disk_used} GB" ,
         "The Disk Free ": f"{data.disk_free} GB"
@@ -132,38 +144,59 @@ def disk():
 
 @app.get("/PING/{host}")
 def PING(host: str):
-    session=db.sessionlocal()
-
-    try:
-        session= db.sessionlocal()
-        result = ping(host)
-
-        data=models.network(
-            host=result
-        )
-
-        session.add(data)
-        session.commit()
-            
-
-        return {
-            "id": data.id,
-            "host": data.Host,
-            "success": result == host,
-            "date": data.date
-        }
-
-    except Exception:
-            session.rollback()
-            raise
-    finally:
-            session.close()
+    return ping(host)
     
 
 
 @app.get("/TCP_PING/{host}/{port}")
 def TCP_PING(host:str , port:int):
-    return f"the host: {host}" , f"the port : {port}" , tcp_ping(host,port)
+
+    session = db.sessionlocal()
+
+    try:
+        agent_id = AGENT_ID
+        connected = False
+
+        try:
+            with socket.create_connection((host, port), timeout=3):
+                connected = True
+
+            logg.info(f"Port is connected: {host}:{port}")
+
+        except (socket.timeout, OSError):
+            logg.warning(
+                f"TCP connection failed: {host}:{port}. "
+                "Check the host name or port."
+            )
+
+        # Save the result
+        ping = models.TcpPing(
+            agent_id=agent_id,
+            host=host,
+            port=port,
+            connected=connected
+        )
+
+        session.add(ping)
+        session.commit()
+        
+    #for fastapi 
+        return {
+            "The ID": ping.id,
+            "The Agent ID": ping.agent_id,
+            "The Host": host,
+            "The Port": port,
+            "The Connected": connected,
+            "The Date": ping.date
+        }
+
+    except Exception:
+        session.rollback()
+        raise
+
+    finally:
+        session.close()
+
 
 
 
@@ -171,8 +204,9 @@ def TCP_PING(host:str , port:int):
 def process():
 
     session = db.sessionlocal()
-
+    
     try:
+        agent_id=AGENT_ID
         processes = []
 
         # get all the processes
@@ -203,12 +237,16 @@ def process():
         processes = processes[:100]
 
         # dlete the priveios 100 row caus it alot of rows
-        session.query(models.Processes).delete() 
+        session.query(models.Processes).delete(
+            synchronize_session=False
+        )
+ 
 
         # Insert the new 100
         for p in processes:
 
             data = models.Processes(
+                agent_id=agent_id,
                 pid=p["pid"],
                 name=p["name"],
                 cpu_percent=p["cpu_percent"],
@@ -219,10 +257,11 @@ def process():
             session.add(data)
 
         session.commit()
-
-        return processes
-        
-
+        return {
+            "The Agnet ID": agent_id,
+            "The Processes": processes
+        }
+    
     except Exception:
         session.rollback()
         raise

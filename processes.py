@@ -19,8 +19,8 @@ def get_process():
 
             processes.append(
                         f"{info['pid']:<8} "
-                        f"{info['name']:<23} "
-                        f"{info['cpu_percent']:<8.1f} "
+                        f"{info['name']:<13} "
+                        f"{info['cpu_percent']:<5.1f} "
                         f"{info['memory_percent']:<8.2f} "
                         f"{info['status']:<12}"
                         )
@@ -28,13 +28,12 @@ def get_process():
 
         except psutil.NoSuchProcess as error1:
             logg.info(f"There is no such process: {error1}")
-            return processes , error1
-
+            return processes , error1 
         except psutil.AccessDenied as error2:
             logg.info(f"Access denied: {error2}")
-            return processes ,error2
-    
+            return processes ,error2 
 
+        
        
 
 
